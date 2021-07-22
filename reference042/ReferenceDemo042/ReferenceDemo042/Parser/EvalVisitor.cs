@@ -35,5 +35,29 @@ namespace ReferenceDemo042.Parser
                 ? _data[id]
                 : 0;
         }
+
+        public override int VisitMulDiv([NotNull] LabeledExprParser.MulDivContext context)
+        {
+            int left = Visit(context.expr(0));
+            int right = Visit(context.expr(1));
+            return (context.op.Type == LabeledExprParser.MUL)
+                ? left * right
+                : left / right;
+        }
+
+        public override int VisitAddSub([NotNull] LabeledExprParser.AddSubContext context)
+        {
+            var left = Visit(context.expr(0));
+            var right = Visit(context.expr(1));
+
+            return context.op.Type == LabeledExprParser.ADD
+                ? left + right
+                : left - right;
+        }
+
+        public override int VisitParens([NotNull] LabeledExprParser.ParensContext context)
+        {
+            return Visit(context.expr());
+        }
     }
 }
