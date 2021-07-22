@@ -59,5 +59,11 @@ namespace ReferenceDemo042.Parser
         {
             return Visit(context.expr());
         }
+
+        public override int VisitClear([NotNull] LabeledExprParser.ClearContext context)
+        {
+            _data.Clear();
+            return 0;
+        }
     }
 }

@@ -52,6 +52,13 @@ public interface ILabeledExprVisitor<Result> : IParseTreeVisitor<Result> {
 	/// <return>The visitor result.</return>
 	Result VisitAssign([NotNull] LabeledExprParser.AssignContext context);
 	/// <summary>
+	/// Visit a parse tree produced by the <c>clear</c>
+	/// labeled alternative in <see cref="LabeledExprParser.stat"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitClear([NotNull] LabeledExprParser.ClearContext context);
+	/// <summary>
 	/// Visit a parse tree produced by the <c>blank</c>
 	/// labeled alternative in <see cref="LabeledExprParser.stat"/>.
 	/// </summary>
