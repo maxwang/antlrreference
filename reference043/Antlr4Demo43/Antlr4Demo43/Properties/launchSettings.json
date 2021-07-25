@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Antlr4Demo43": {
+      "commandName": "Project",
+      "commandLineArgs": "test.txt 1"
+    }
+  }
+}
